@@ -1,6 +1,6 @@
 import requests
 cc='91'
-pn='8310001420'
+pn=int(input('Enter phno : '))
 url = "https://rest-ww.telesign.com/v1/anonymous/session/sms"
 
 payload = "{\"phone_number_1\":\"918310001420\",\"phone_number_2\":\"918904460742\",\"validity_period\":1}"
