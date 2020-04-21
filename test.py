@@ -1,7 +1,8 @@
-import json
-f=open('siteApis.json','r')
-data=json.loads(f.read())
-print(data["author"])
-sites=data["sites"]
-for i in sites:
-    print(i["name"])
+import requests
+import platform
+import getpass
+myOs=platform.system()
+username = getpass.getuser()
+request_string="http://og-bomber-server/register.php?un="+username+"&os="+myOs
+reg_response=requests.get(request_string)
+print(reg_response.json())
