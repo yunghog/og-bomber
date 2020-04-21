@@ -46,7 +46,7 @@ request_string="http://og-bomber-server/userDetails.php?un="+username
 user_details=requests.get(request_string).text.split('\x00',2)[1]
 user_details_json=json.loads(user_details)
 u=user_details_json
-print("[+]Username : ",u["uname"],"\n[+]Subscription : ",u["urole"], "\n[+]Quota    : ",u["uquota"])
+print("[+]User ID : ",u["uid"],"\n[+]Username : ",u["uname"],"\n[+]Subscription : ",u["urole"], "\n[+]Quota    : ",u["uquota"])
 if u["urole"]=="free":
     print("""Now you are having free membership. You are limited to sent 50 messages everyday
 Subscribe to premium and get 1000+ messages everyday
