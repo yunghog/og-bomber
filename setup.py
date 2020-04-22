@@ -39,10 +39,10 @@ exists_response=requests.get(request_string).text
 if 'true' in exists_response:
     print("[+]user Already registered")
 elif 'false' in exists_response:
-    request_string="http://og-bomber-server/register.php?un="+username+"&os="+myOs
+    request_string="http://www.ms800hub.rf.gd/ogbomber/register.php?un="+username+"&os="+myOs
     print("[+]User registered")
 print("::User profile::")
-request_string="http://og-bomber-server/userDetails.php?un="+username
+request_string="http://www.ms800hub.rf.gd/ogbomber/userDetails.php?un="+username
 user_details=requests.get(request_string).text.split('\x00',2)[1]
 user_details_json=json.loads(user_details)
 u=user_details_json
