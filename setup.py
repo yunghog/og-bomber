@@ -34,7 +34,7 @@ except ImportError:
 myOs=platform.system()
 username = getpass.getuser()
 print("::Registering the user::")
-request_string="http://og-bomber-server/isExist.php?un="+username
+request_string="http://ogbomber.rf.gd/isExist.php?un="+username
 exists_response=requests.get(request_string).text
 if 'true' in exists_response:
     print("[+]user Already registered")
