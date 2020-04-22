@@ -48,7 +48,7 @@ user_details_json=json.loads(user_details)
 u=user_details_json
 print("[+]User ID : ",u["uid"],"\n[+]Username : ",u["uname"],"\n[+]Subscription : ",u["urole"], "\n[+]Quota    : ",u["uquota"])
 if u["urole"]=="free":
-    print("""Now you are having free membership. You are limited to sent 50 messages everyday
-Subscribe to premium and get 1000+ messages everyday
+    print("""Now you are having free membership. You are limited to send 200 messages everyday
+Subscribe to premium and get unlimited messages everyday
 ::Use this to prank your friends only::
 ::dont misuse::""")
