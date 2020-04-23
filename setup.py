@@ -1,6 +1,7 @@
 #setup to install og-bomber
 #author : Samartha
 import platform
+from selenium import webdriver
 import getpass
 import os
 import json
@@ -33,19 +34,23 @@ except ImportError:
         exit()
 myOs=platform.system()
 username = getpass.getuser()
+driver=webdriver.PhantomJS()
 print("::Registering the user::")
-request_string="http://ogbomber.rf.gd/ogbomber/isExist.php?un="+username
-exists_response=requests.get(request_string).text
+request_string="http://ogbomber.rf.gd/isExist.php?un="+username
+driver.get(request_string)
+exists_response=driver.find_element_by_id("result").text
 if 'true' in exists_response:
     print("[+]user Already registered")
 elif 'false' in exists_response:
-    request_string="http://ogbomber.rf.gd/ogbomber/register.php?un="+username+"&os="+myOs
+    request_string="http://ogbomber.rf.gd/register.php?un="+username+"&os="+myOs
+    driver.get(request_string)
     print("[+]User registered")
 else:
     print(exists_response)
 print("::User profile::")
-request_string="http://ogbomber.rf.gd/ogbomber/userDetails.php?un="+username
-user_details=requests.get(request_string).text.split('\x00',2)[1]
+request_string="http://ogbomber.rf.gd/userDetails.php?un="+username
+driver.get(request_string)
+user_details=driver.find_element_by_id("result").text
 user_details_json=json.loads(user_details)
 u=user_details_json
 print("[+]User ID : ",u["uid"],"\n[+]Username : ",u["uname"],"\n[+]Subscription : ",u["urole"], "\n[+]Quota    : ",u["uquota"])
