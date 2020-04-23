@@ -85,7 +85,7 @@ python bombOgCli.py
 
 ## Snapshot
 - `setup.py`
-<img src="image/snap1.PNG">
+<img src="image/snap.PNG">
 
 ## Support
 - [Buy me a coffee ☕🍪](https://paypal.me/samartha890?locale.x=en_GB)
