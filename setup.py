@@ -1,7 +1,6 @@
 #setup to install og-bomber
 #author : Samartha
 import platform
-from selenium import webdriver
 import getpass
 import os
 import json
@@ -20,6 +19,23 @@ banner="""
 os.system('cls')
 print(banner)
 print('::Checking Requirements::')
+try:
+    from selenium import webdriver
+    print("[+]selenium - available")
+    try:
+        driver=webdriver.PhantomJS()
+        print("[+]PhantomJS - available")
+    except Exception as e:
+        print(e)
+except ImportError:
+    print("[-]selenium - not available")
+    try:
+        print("::Trrying to install selenium::")
+        os.system("pip install selenium")
+        print("[+]selenium installed")
+    except Exception :
+        print("Couldnt install [-]selenium\nTry again later")
+        exit()
 try:
     import requests
     print("[+]requests - available")
