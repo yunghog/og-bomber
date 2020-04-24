@@ -18,7 +18,7 @@ print(banner)
 un=getpass.getuser()
 pn=input("Enter number : ")
 n=int(input("Enter limit : "))
-cc=input("Country Code :")
+cc=input("Country Code : ")
 if b.checkConnectivity():
     if b.ifExists(un):
         if b.checkQuota(b.getUserDetails(un)):
