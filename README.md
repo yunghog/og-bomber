@@ -95,3 +95,6 @@ python bombOgCli.py
 - 🍴 Fork this repo!
 - 👯 Clone this repo to your local machine using `https://github.com/yunghog/og-bomber.git`
 - Pull requests
+
+## To-do
+- []Call spoofing
