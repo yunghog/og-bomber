@@ -74,4 +74,4 @@ if u["urole"]=="free":
     print("""Now you are having free membership. You are limited to send 200 messages everyday
 Subscribe to premium and get unlimited messages everyday
 ::Use this to prank your friends only::
-::dont misuse::""")
+::dont misuse:: """)
